@@ -1,7 +1,11 @@
-import "./App.css";
+import React, { Component } from "react";
 import Menu from "./components/MenuComponent";
-function App() {
-  return <Menu />;
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { dishes: '' };
+  }
+  render() {
+    return <Menu dishes={this.state.dishes} />;
+  }
 }
-
-export default App;
