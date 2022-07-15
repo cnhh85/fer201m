@@ -3,7 +3,9 @@ import { Card, CardBody, CardTitle, CardText, CardImg } from "reactstrap";
 
 const DishDetailComponent = (props) => {
   const renderDish = (dish) => {
-    return (
+    return dish === null ? (
+      <div></div>
+    ) : (
       <div className="col-12 col-md-5 m-1">
         <Card>
           <CardImg top src={dish.image} alt={dish.name} />
@@ -17,7 +19,9 @@ const DishDetailComponent = (props) => {
   };
 
   const renderComment = (props) => {
-    return (
+    return props === null ? (
+      <div></div>
+    ) : (
       <div className="col-12 col-sm-7">
         <h2>Comments</h2>
         {props.map((item) => {
@@ -34,9 +38,7 @@ const DishDetailComponent = (props) => {
     );
   };
 
-  return props.dish === null ? (
-    <div></div>
-  ) : (
+  return (
     <div className="container">
       <div className="row">
         {renderDish(props.dish)}

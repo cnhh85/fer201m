@@ -3,10 +3,11 @@ import { Navbar, NavbarBrand } from "reactstrap";
 import Menu from "./MenuComponent";
 import DishDetail from "./DishDetailComponent";
 import { DISHES } from "../shared/dish";
-
+import Header from "./HeaderComponent";
+import Footer from "./FooterComponent";
 
 const Main = () => {
-  const [selectedDish, setSelectedDish] = useState();
+  const [selectedDish, setSelectedDish] = useState(DISHES[0]);
 
   const onDishSelect = (dishId) => {
     const onSelect = DISHES.filter((dish) => dish.id === dishId)[0];
@@ -15,13 +16,10 @@ const Main = () => {
 
   return (
     <div>
-      <Navbar dark color="primary">
-        <div className="container">
-          <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
-        </div>
-      </Navbar>
+      <Header></Header>
       <Menu dishes={DISHES} onClick={(dishId) => onDishSelect(dishId)}></Menu>
       <DishDetail dish={selectedDish}></DishDetail>
+      <Footer></Footer>
     </div>
   );
 };
