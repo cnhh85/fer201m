@@ -4,13 +4,15 @@ import { Card, CardBody, CardTitle, CardText, CardImg } from "reactstrap";
 const DishDetailComponent = (props) => {
   const renderDish = (dish) => {
     return (
-      <Card>
-        <CardImg top src={dish.image} alt={dish.name} />
-        <CardBody>
-          <CardTitle>{dish.name}</CardTitle>
-          <CardText>{dish.description}</CardText>
-        </CardBody>
-      </Card>
+      <div className="col-12 col-md-5 m-1">
+        <Card>
+          <CardImg top src={dish.image} alt={dish.name} />
+          <CardBody>
+            <CardTitle>{dish.name}</CardTitle>
+            <CardText>{dish.description}</CardText>
+          </CardBody>
+        </Card>
+      </div>
     );
   };
 
