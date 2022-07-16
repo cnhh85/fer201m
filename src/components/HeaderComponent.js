@@ -31,7 +31,7 @@ const Header = () => {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link" to="/aboutus">
+                <NavLink className="nav-link" to="/about">
                   <span className="fa fa-info fa-lg"> About us</span>
                 </NavLink>
               </NavItem>
@@ -41,7 +41,7 @@ const Header = () => {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link" to="/contactus">
+                <NavLink className="nav-link" to="/contact">
                   <span className="fa fa-address-card fa-lg"> Contact us</span>
                 </NavLink>
               </NavItem>
