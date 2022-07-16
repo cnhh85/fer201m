@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Footer = (props) => {
+const Footer = () => {
   return (
     <div className="footer">
       <div className="container">
@@ -9,16 +10,16 @@ const Footer = (props) => {
             <h5>Links</h5>
             <ul className="list-unstyled">
               <li>
-                <a href="/">Home</a>
+                <Link to="/home">Home</Link>
               </li>
               <li>
-                <a href="/">About</a>
+                <Link to="/aboutus">About us</Link>
               </li>
               <li>
-                <a href="/">Menu</a>
+                <Link to="/menu">Menu</Link>
               </li>
               <li>
-                <a href="contactus.html">Contact</a>
+                <Link to="/contactus">Contact us</Link>
               </li>
             </ul>
           </div>
@@ -30,7 +31,7 @@ const Footer = (props) => {
               HONG KONG <br />
               <i className="fa fa-phone fa-lg"></i>: +852 1234 5678 <br />
               <i className="fa fa-fax fa-lg"></i>: +852 1234 5678 <br />
-              <i className="fa fa-envelope fa-lg"></i>: 
+              <i className="fa fa-envelope fa-lg"></i>:
               <a href="mailto:confution@food.net"> confusion@food.net</a>
             </address>
           </div>
