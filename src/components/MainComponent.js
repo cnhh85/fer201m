@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import DishDetailComponent from "./DishDetailComponent";
 import { DISHES } from "../shared/dish";
+import { DATABASE } from "../shared/database";
 import { LEADERS } from "../shared/leaders";
 import { PROMOTIONS } from "../shared/promotions";
 import Menu from "./MenuComponent";
@@ -9,15 +10,53 @@ import Footer from "./FooterComponent";
 import Home from "./HomeComponent";
 import Contact from "./ContactComponent";
 import AboutComponent from "./AboutComponent";
-import { Routes, Route, Navigate } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+import { connect } from "react-redux";
 
-const Main = () => {
+const withRouter = (Child) => {
+  return (props) => {
+    const location = useLocation();
+    const navigate = useNavigate();
+    return <Child {...props} navigate={navigate} location={location} />;
+  };
+};
+
+const mapStateToProps = (state) => {
+  return {
+    dishes: state.dishes,
+    comments: state.comments,
+    promotions: state.promotions,
+    leaders: state.leaders,
+  };
+};
+
+const Main = ({ dishes, comments, promotions, leaders }) => {
+  const [featuredDish] = useState(() => {
+    return DATABASE.dishes.filter((item) => item.featured === true)[0].id;
+  });
+  const [featuredPromotion] = useState(() => {
+    return DATABASE.promotions.filter((item) => item.featured === true)[0].id;
+  });
+  const [featuredLeader] = useState(() => {
+    return DATABASE.leaders.filter((item) => item.featured === true)[0].id;
+  });
+
   const renderHome = () => {
     return (
       <Home
-        dish={DISHES.filter((dish) => dish.featured)[0]}
-        promotion={PROMOTIONS.filter((promotion) => promotion.featured)[0]}
-        leader={LEADERS.filter((leader) => leader.featured)[0]}
+        dish={dishes.filter((dish) => dish.id === featuredDish)[0]}
+        promotion={
+          promotions.filter(
+            (promotion) => promotion.id === featuredPromotion
+          )[0]
+        }
+        leader={leaders.filter((leader) => leader.id === featuredLeader)[0]}
       />
     );
   };
@@ -30,7 +69,7 @@ const Main = () => {
         <Route path="/contact" element={<Contact />}></Route>
         <Route
           path="/about"
-          element={<AboutComponent leaders={LEADERS} />}
+          element={<AboutComponent leaders={leaders} />}
         ></Route>
         <Route path="/menu" element={<Menu />}></Route>
         <Route path="/menu/:dishId" element={<DishDetailComponent />}></Route>
@@ -41,4 +80,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default connect(mapStateToProps)(Main);

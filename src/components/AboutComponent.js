@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 const AboutComponent = (props) => {
   const leaders = props.leaders.map((leader) => {
     return (
-      <div className="mt-3 d-flex">
+      <div key={leader.id} className="mt-3 d-flex">
         <div>
           <img className="mr-1" src={leader.image} alt="" />
         </div>

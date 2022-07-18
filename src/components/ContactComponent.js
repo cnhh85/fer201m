@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -10,17 +10,17 @@ import {
   FormGroup,
   Input,
   Label,
-} from 'reactstrap';
+} from "reactstrap";
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Contact = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [telnum, setTelnum] = useState('');
-  const [email, setEmail] = useState('');
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [telnum, setTelnum] = useState("");
+  const [email, setEmail] = useState("");
   const [agree, setAgree] = useState(false);
-  const [contactType, setContactType] = useState('Tel.');
-  const [message, setMessage] = useState('');
+  const [contactType, setContactType] = useState("Tel.");
+  const [message, setMessage] = useState("");
   const [touched, setTouched] = useState({
     firstName: false,
     lastName: false,
@@ -39,7 +39,7 @@ const Contact = () => {
 
   const handleInputChange = (e) => {
     const target = e.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
 
     STATES[name](value);
@@ -55,8 +55,8 @@ const Contact = () => {
       contactType,
       message,
     };
-    console.log('Current state is: ' + JSON.stringify(stateObj));
-    alert('Current state is: ' + JSON.stringify(stateObj));
+    console.log("Current state is: " + JSON.stringify(stateObj));
+    alert("Current state is: " + JSON.stringify(stateObj));
     e.preventDefault();
   };
 
@@ -69,32 +69,32 @@ const Contact = () => {
 
   const validate = (firstName, lastName, telnum, email) => {
     const errors = {
-      firstName: '',
-      lastName: '',
-      telnum: '',
-      email: '',
+      firstName: "",
+      lastName: "",
+      telnum: "",
+      email: "",
     };
     if (touched.firstName && firstName.length < 3) {
-      errors.firstName = 'First name should be >= 3 characters';
+      errors.firstName = "First name should be >= 3 characters";
     } else if (touched.firstName && firstName.length > 10) {
-      errors.firstName = 'First name should be <= 10 characters';
+      errors.firstName = "First name should be <= 10 characters";
     }
 
     if (touched.lastName && lastName.length < 3) {
-      errors.lastName = 'Last name should be >= 3 characters';
+      errors.lastName = "Last name should be >= 3 characters";
     } else if (touched.lastName && lastName.length > 10) {
-      errors.lastName = 'Last name should be <= 10 characters';
+      errors.lastName = "Last name should be <= 10 characters";
     }
 
     const regex = /^\d+$/;
     if (touched.telnum && !regex.test(telnum)) {
-      errors.telnum = 'Tel. number should contain only numbers';
+      errors.telnum = "Tel. number should contain only numbers";
     }
     if (
       touched.email &&
-      email.split('').filter((c) => c === '@').length !== 1
+      email.split("").filter((c) => c === "@").length !== 1
     ) {
-      errors.email = 'Email should contain a @';
+      errors.email = "Email should contain a @";
     }
 
     return errors;
@@ -179,9 +179,9 @@ const Contact = () => {
                   name="firstName"
                   placeholder="First Name"
                   value={firstName}
-                  valid={errors.firstName === ''}
-                  invalid={errors.firstName !== ''}
-                  onBlur={handleBlur('firstName')}
+                  valid={errors.firstName === ""}
+                  invalid={errors.firstName !== ""}
+                  onBlur={handleBlur("firstName")}
                   onChange={handleInputChange}
                 />
                 <FormFeedback>{errors.firstName}</FormFeedback>
@@ -198,9 +198,9 @@ const Contact = () => {
                   name="lastName"
                   placeholder="Last Name"
                   value={lastName}
-                  valid={errors.lastName === ''}
-                  invalid={errors.lastName !== ''}
-                  onBlur={handleBlur('lastName')}
+                  valid={errors.lastName === ""}
+                  invalid={errors.lastName !== ""}
+                  onBlur={handleBlur("lastName")}
                   onChange={handleInputChange}
                 />
                 <FormFeedback>{errors.lastName}</FormFeedback>
@@ -217,9 +217,9 @@ const Contact = () => {
                   name="telnum"
                   placeholder="Tel. number"
                   value={telnum}
-                  valid={errors.telnum === ''}
-                  invalid={errors.telnum !== ''}
-                  onBlur={handleBlur('telnum')}
+                  valid={errors.telnum === ""}
+                  invalid={errors.telnum !== ""}
+                  onBlur={handleBlur("telnum")}
                   onChange={handleInputChange}
                 />
                 <FormFeedback>{errors.telnum}</FormFeedback>
@@ -236,9 +236,9 @@ const Contact = () => {
                   name="email"
                   placeholder="Email"
                   value={email}
-                  valid={errors.email === ''}
-                  invalid={errors.email !== ''}
-                  onBlur={handleBlur('email')}
+                  valid={errors.email === ""}
+                  invalid={errors.email !== ""}
+                  onBlur={handleBlur("email")}
                   onChange={handleInputChange}
                 />
               </Col>
