@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card, CardBody, CardTitle, CardText, CardImg } from "reactstrap";
 import { DISHES } from "../shared/dish";
 import { COMMENTS } from "../shared/comments";

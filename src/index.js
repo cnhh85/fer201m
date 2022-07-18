@@ -4,9 +4,10 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
 import "font-awesome/css/font-awesome.css";
 import "bootstrap-social/bootstrap-social.css";
-import {BrowserRouter} from 'react-router-dom'
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
