@@ -5,7 +5,11 @@ import {
   CardSubtitle,
   CardText,
   CardTitle,
+  Breadcrumb,
+  BreadcrumbItem,
 } from "reactstrap";
+
+import { Link } from "react-router-dom";
 
 const Home = (props) => {
   const renderCard = (card) => {
@@ -25,6 +29,12 @@ const Home = (props) => {
 
   return (
     <div className="container">
+      <Breadcrumb>
+        <BreadcrumbItem>
+          <Link to="/home">Home</Link>
+        </BreadcrumbItem>
+        <BreadcrumbItem active>About Us</BreadcrumbItem>
+      </Breadcrumb>
       <div className="row align-items-start">
         <div className="col-12 col-md m-1">{renderCard(props.dish)}</div>
         <div className="col-12 col-md m-1">{renderCard(props.promotion)}</div>

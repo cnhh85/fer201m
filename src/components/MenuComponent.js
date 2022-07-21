@@ -9,6 +9,8 @@ import {
   CardTitle,
 } from "reactstrap";
 import { DISHES } from "../shared/dish";
+import TestFetch from "./TestFetch";
+
 export const Menu = (props) => {
   const renderMenuItem = (dish, onClick) => {
     return (

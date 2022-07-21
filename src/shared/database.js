@@ -247,7 +247,7 @@ const JSON_STRING = `{
     {
       "id": 3,
       "name": "Alberto Somayya",
-      "image": "assets/images/alberto.jpg",
+      "image": "assets/images/alberto.png",
       "designation": "Executive Chef",
       "abbr": "EC",
       "featured": true,

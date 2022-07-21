@@ -201,6 +201,14 @@
       "comment": "It's your birthday, we're gonna party!",
       "author": "25 Cent",
       "date": "2011-12-02T17:57:28.556094Z"
+    },
+    {
+      "id": 20,
+      "dishId": 2,
+      "rating": 0,
+      "comment": "á",
+      "author": "á",
+      "date": "Thu Jul 21 2022 08:55:05 GMT+0700 (Giờ Đông Dương)"
     }
   ],
   "promotions": [
@@ -218,7 +226,7 @@
     {
       "id": 0,
       "name": "Peter Pan",
-      "image": "images/alberto.png",
+      "image": "assets/images/alberto.png",
       "designation": "Chief Epicurious Officer",
       "abbr": "CEO",
       "featured": false,

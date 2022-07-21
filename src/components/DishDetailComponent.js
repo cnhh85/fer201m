@@ -1,9 +1,17 @@
 import React from "react";
-import { Card, CardBody, CardTitle, CardText, CardImg } from "reactstrap";
+import {
+  Card,
+  CardBody,
+  CardTitle,
+  CardText,
+  CardImg,
+  Breadcrumb,
+  BreadcrumbItem,
+} from "reactstrap";
 import { DISHES } from "../shared/dish";
 import { COMMENTS } from "../shared/comments";
 
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const DishDetailComponent = (props) => {
   let params = useParams();
@@ -58,7 +66,24 @@ const DishDetailComponent = (props) => {
       </div>
     );
   };
-  return <div className="container">{renderSingleDish(params)}</div>;
+  return (
+    <div className="container">
+      <Breadcrumb>
+        <BreadcrumbItem>
+          <Link to="/home">Home</Link>
+        </BreadcrumbItem>
+        <BreadcrumbItem>
+          <Link to="/menu">Menu</Link>
+        </BreadcrumbItem>
+        <BreadcrumbItem active>{params.dishId}</BreadcrumbItem>
+      </Breadcrumb>
+      <div className="col-12">
+        <h3>Menu</h3>
+        <hr />
+      </div>
+      {renderSingleDish(params)}
+    </div>
+  );
 };
 
 export default DishDetailComponent;

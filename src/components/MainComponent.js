@@ -4,6 +4,7 @@ import { DISHES } from "../shared/dish";
 import { DATABASE } from "../shared/database";
 import { LEADERS } from "../shared/leaders";
 import { PROMOTIONS } from "../shared/promotions";
+import TestFetch from "./TestFetch";
 import Menu from "./MenuComponent";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
@@ -73,6 +74,7 @@ const Main = ({ dishes, comments, promotions, leaders }) => {
         ></Route>
         <Route path="/menu" element={<Menu />}></Route>
         <Route path="/menu/:dishId" element={<DishDetailComponent />}></Route>
+        <Route path="testfetch" element={<TestFetch />}></Route>
         <Route path="*" element={<Navigate to="/home" replace />}></Route>
       </Routes>
       <Footer></Footer>
@@ -80,4 +82,4 @@ const Main = ({ dishes, comments, promotions, leaders }) => {
   );
 };
 
-export default connect(mapStateToProps)(Main);
+export default withRouter(connect(mapStateToProps)(Main));
